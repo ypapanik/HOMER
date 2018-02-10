@@ -2,7 +2,6 @@ package gr.auth.csd.mlkd.utils;
 
 import gnu.trove.map.hash.TIntDoubleHashMap;
 import gnu.trove.map.hash.TIntObjectHashMap;
-import gr.auth.csd.mlkd.evaluation.ConfMatrix;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

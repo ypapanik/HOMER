@@ -115,10 +115,6 @@ public class VectorizeJSON implements Vectorize {
 
     public void vectorizeTrain(Corpus corpus, String libsvmFilename, String labelsFilename,
             String metaLabelsFilename) {
-//        File f = new File(libsvmFilename);
-//        File f2 = new File(labelsFilename);
-//        File f3 = new File(metaLabelsFilename);
-//        if(f.exists()&&f2.exists()&&f3.exists()) {System.out.println("Found existing vectorized file "+ libsvmFilename);return;}
         vectorizeLabeled(corpus, libsvmFilename, labelsFilename, true, metaLabelsFilename);
     }
 

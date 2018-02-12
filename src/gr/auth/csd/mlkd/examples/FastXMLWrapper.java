@@ -21,8 +21,8 @@ public class FastXMLWrapper {
 
     public static void main(String args[]) throws InterruptedException, IOException {
         String dataset = args[0];
-        String inTrain = "data/"+args[0]+"/bibtextrain";
-        String inTest = "data/"+args[0]+"/bibtextest";
+        String inTrain = "data/"+args[0]+"/"+args[0]+"train";
+        String inTest = "data/"+args[0]+"/"+args[0]+"test";
         String outTrain = "data/"+args[0]+"/train.txt";
         String outTest = "data/"+args[0]+"/test.txt";
                
@@ -33,7 +33,8 @@ public class FastXMLWrapper {
       
         VectorizeMultiLabelLibSVM v = new VectorizeMultiLabelLibSVM(dic, false, labels);
         v.transfrom(inTrain, inTest, outTrain, outTest);
-        Process process = new ProcessBuilder("./fastXML.sh", dataset).redirectError(new File("err.txt")).redirectOutput(new File("out.txt")).start();
+        //Process process = new ProcessBuilder("./fastXML.sh", dataset).redirectError(new File("err.txt")).redirectOutput(new File("out.txt")).start();
+        Process process = new ProcessBuilder("./pfastreXML.sh", dataset).redirectError(new File("err.txt")).redirectOutput(new File("out.txt")).start();
         process.waitFor();
         EvaluateFastXML ev = new EvaluateFastXML(outTest, "results/"+dataset+"/score_mat.txt", labels.getSize(), 5);
     }

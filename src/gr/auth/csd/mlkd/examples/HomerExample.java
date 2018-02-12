@@ -25,6 +25,7 @@ import gr.auth.csd.mlkd.mlclassification.homer.clusterer.Dbscan;
 import gr.auth.csd.mlkd.mlclassification.homer.clusterer.Hierarchical;
 import gr.auth.csd.mlkd.mlclassification.homer.clusterer.Optics;
 import gr.auth.csd.mlkd.mlclassification.homer.clusterer.RecursiveBalancedKMeans;
+import gr.auth.csd.mlkd.mlclassification.homer.clusterer.RecursiveKMeans;
 import gr.auth.csd.mlkd.mlclassification.homer.clusterer.RecursiveLabelClustering;
 import gr.auth.csd.mlkd.preprocessing.CorpusJSON;
 import gr.auth.csd.mlkd.preprocessing.Dictionary;
@@ -88,7 +89,7 @@ public class HomerExample {
 
         switch (clusterer) {
             case "kmeans":
-                cc = new RecursiveBalancedKMeans(labels, option.maxClusterSize, option.numOfClusters, df);
+                cc = new RecursiveKMeans(labels, option.maxClusterSize, option.numOfClusters, df);
                 break;
             case "optics":
                 cc = new Optics(labels, option.maxClusterSize, epsilon, df);
